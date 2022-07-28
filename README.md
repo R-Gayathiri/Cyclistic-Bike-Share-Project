@@ -34,9 +34,9 @@ Throughout this capstone project, all execution will be done with R-Programming 
 
 ### 3.1: Data Preparation.
 
-The analysis period occurred between 2020 October to 2021 October, this 1 year span data will be applied to analyze the trend between casual customers and members. </br>
+The analysis period occurred between 2021 July to 2022 June, this 1 year span data will be applied to analyze the trend between casual customers and members. </br>
 
-The data from 2020 October and 2021 October are all stored in different csv files, which can be found in [here](https://divvy-tripdata.s3.amazonaws.com/index.html) </br>
+The data from 2021 July and 2021 June are all stored in different csv files, which can be found in [here](https://divvy-tripdata.s3.amazonaws.com/index.html) </br>
 
 The following code will summarize which R-packages this analysis have applied for </br>
 
@@ -55,34 +55,32 @@ Once the packages have been loaded, the following command will be applied to loa
 
 ```r
 # Load csv file into individual data frame
-Oct_2020 <- read_csv("202010-divvy-tripdata.csv")
-Nov_2020 <- read_csv("202011-divvy-tripdata.csv")
-Dec_2020 <- read_csv("202012-divvy-tripdata.csv")
-Jan_2021 <- read_csv("202101-divvy-tripdata.csv")
-Feb_2021 <- read_csv("202102-divvy-tripdata.csv")
-Mar_2021 <- read_csv("202103-divvy-tripdata.csv")
-Apr_2021 <- read_csv("202104-divvy-tripdata.csv")
-May_2021 <- read_csv("202105-divvy-tripdata.csv")
-Jun_2021 <- read_csv("202106-divvy-tripdata.csv")
-Jul_2021 <- read_csv("202107-divvy-tripdata.csv")
-Aug_2021 <- read_csv("202108-divvy-tripdata.csv")
-Sep_2021 <- read_csv("202109-divvy-tripdata.csv")
-Oct_2021 <- read_csv("202110-divvy-tripdata.csv")
+jul_2021 <- read_csv("202107-divvy-tripdata.csv")
+aug_2021 <- read_csv("202108-divvy-tripdata.csv")
+sep_2021 <- read_csv("202109-divvy-tripdata.csv")
+oct_2021 <- read_csv("202110-divvy-tripdata.csv")
+nov_2021 <- read_csv("202111-divvy-tripdata.csv")
+dec_2021 <- read_csv("202112-divvy-tripdata.csv")
+jan_2022 <- read_csv("202201-divvy-tripdata.csv")
+feb_2022 <- read_csv("202202-divvy-tripdata.csv")
+mar_2022 <- read_csv("202203-divvy-tripdata.csv")
+apr_2022 <- read_csv("202204-divvy-tripdata.csv")
+may_2022 <- read_csv("202205-divvy-tripdata.csv")
+jun_2022 <- read_csv("202206-divvy-tripdata.csv")
 
 # Verify column names at each data frame
-colnames(Oct_2020)
-colnames(Nov_2020)
-colnames(Dec_2020)
-colnames(Jan_2021)
-colnames(Feb_2021)
-colnames(Mar_2021)
-colnames(Apr_2021)
-colnames(May_2021)
-colnames(Jun_2021)
-colnames(Jul_2021)
-colnames(Aug_2021)
-colnames(Sep_2021)
-colnames(Oct_2021)
+colnames(jul_2021)
+colnames(aug_2021)
+colnames(sep_2021)
+colnames(oct_2021)
+colnames(nov_2021)
+colnames(dec_2021)
+colnames(jan_2022)
+colnames(feb_2022)
+colnames(mar_2022)
+colnames(apr_2022)
+colnames(may_2022)
+colnames(jun_2022)
 ```
 </br>
 
@@ -97,42 +95,36 @@ The following command will verify the structure of each month's database, then r
 
 ```r
 ## Verify the Structure of each data frame
-str(Oct_2020)
-str(Nov_2020)
-str(Dec_2020)
-str(Jan_2021)
-str(Feb_2021)
-str(Mar_2021)
-str(Apr_2021)
-str(May_2021)
-str(Jun_2021)
-str(Jul_2021)
-str(Aug_2021)
-str(Sep_2021)
-str(Oct_2021)
+str(jul_2021)
+str(aug_2021)
+str(sep_2021)
+str(oct_2021)
+str(nov_2021)
+str(dec_2021)
+str(jan_2022)
+str(feb_2022)
+str(mar_2022)
+str(apr_2022)
+str(may_2022)
+str(jun_2022)
 
 ## Rename the conflicted variables as character variables
-Oct_2020 <- mutate(Oct_2020, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Nov_2020 <- mutate(Nov_2020, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Dec_2020 <- mutate(Dec_2020, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Jan_2021 <- mutate(Jan_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Feb_2021 <- mutate(Feb_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Mar_2021 <- mutate(Mar_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Apr_2021 <- mutate(Apr_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-May_2021 <- mutate(May_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Jun_2021 <- mutate(Jun_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Jul_2021 <- mutate(Jul_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Aug_2021 <- mutate(Aug_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Sep_2021 <- mutate(Sep_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
-Oct_2021 <- mutate(Oct_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+jul_2021 <- mutate(jul_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+aug_2021 <- mutate(aug_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+sep_2021 <- mutate(sep_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+oct_2021 <- mutate(oct_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+nov_2021 <- mutate(nov_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+dec_2021 <- mutate(dec_2021, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+jan_2022 <- mutate(jan_2022, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+may_2022 <- mutate(may_2022, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+jun_2022 <- mutate(jun_2022, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+feb_2022 <- mutate(feb_2022, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+mar_2022 <- mutate(mar_2022, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
+apr_2022 <- mutate(apr_2022, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type), start_station_id = as.character(start_station_id),end_station_id = as.character(end_station_id))
 
 ## Stack all data as one data frame
-alltrips <- bind_rows(Oct_2020, Nov_2020, Dec_2020, Jan_2021, Feb_2021, Mar_2021, Apr_2021, May_2021, Jun_2021, Jul_2021, Aug_2021, Sep_2021, Oct_2021)
+alltrips <- bind_rows(jul_2021, nov_2021, dec_2021, jan_2022, feb_2022, mar_2022, apr_2022, may_2022, jun_2022, aug_2021, sep_2021, oct_2021)
 
-## Remove unnecessary columns for the data extracts
-alltrips <- alltrips %>%
-  select(-c(start_lat, start_lng, end_lat, end_lng))
-```
 </br>
 
 
@@ -150,12 +142,6 @@ head(alltrips)
 tail(alltrips)
 str(alltrips)
 summary(alltrips)
-
-## Use re-code to rename the membership mode
-alltrips <- alltrips %>%
-  mutate(member_casual = recode(member_casual,"Subscriber" = "member", "Customer" = "casual"))
-
-table(alltrips$member_casual)
 
 ## Convert POSI Dates as date format
 alltrips$date <- as.Date(alltrips$started_at)
@@ -177,11 +163,28 @@ alltrips$ride_length <- as.numeric(as.character(alltrips$ride_length))
 ## Verify the character type is numeric
 is.numeric(alltrips$ride_length)
 
-## Remove Bad Data from either incomplete ride length (less than 0) or taken out of docks.
-alltrips_v2 <- alltrips[!(alltrips$start_station_name == "HQ QR" | alltrips$ride_length < 0), ]
+## Records with missing fields start_station, end_station, start/end lat/long fields were removed.
+alltrips2 <- alltrips[!(is.na(alltrips$start_station_id) | is.na(alltrips$end_station_id) 
+                             | is.na(alltrips$ride_id) | is.na(alltrips$rideable_type) 
+                             | is.na(alltrips$started_at) | is.na(alltrips$ended_at) 
+                             | is.na(alltrips$end_lat) | is.na(alltrips$end_lng)),]
+
+nrow(alltrips2)
+
+## Records for trips that started or ended at DIVVY CASSETTE REPAIR MOBILE STATION or 
+## HUBBARD ST BIKE CHECKING (LBS-WH-TEST) were removed as these are administrative stations.
+
+alltrips2<- alltrips2[!(alltrips2$start_station_name == "DIVVY CASSETTE REPAIR MOBILE STATION" 
+                            | alltrips2$start_station_name == "HUBBARD ST BIKE CHECKING (LBS-WH-TEST)" 
+                            | alltrips2$start_station_name == "WATSON TESTING DIVVY" 
+                            | alltrips2$end_station_name == "DIVVY CASSETTE REPAIR MOBILE STATION" 
+                            | alltrips2$end_station_name == "HUBBARD ST BIKE CHECKING (LBS-WH-TEST)" 
+                            | alltrips2$end_station_name == "WATSON TESTING DIVVY"),]
+nrow(alltrips2)
+
 
 ## Remove the NA values to get a more precise data summary
-alltrips_v3 <- na.omit(alltrips_v2)
+alltrips2 <- na.omit(alltrips2)
 ```
 </br>
 
@@ -194,15 +197,15 @@ The following command will summarize based on either the membership types and as
 
 ```r
 ## Order the weekdays structure for confirmation
-alltrips_v3$day_of_week <- ordered(alltrips_v3$day_of_week, levels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+alltrips2$day_of_week <- ordered(alltrips2$day_of_week, levels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 
 ## Summary based on the customer types
-customer_summary <- alltrips_v3 %>%
+customer_summary <- alltrips2 %>%
   group_by(member_casual) %>%
   summarize(avg_length = mean(ride_length), median_length = median(ride_length), max_length = max(ride_length), min_length = min(ride_length))
 
 ## Summary based on the weekday types while splitting the customer types
-weekday_summary <- alltrips_v3 %>%
+weekday_summary <- alltrips2 %>%
   group_by(day_of_week, member_casual) %>%  
   summarize(avg_length = mean(ride_length), median_length = median(ride_length), max_length = max(ride_length), min_length = min(ride_length))
 ```
@@ -214,32 +217,32 @@ The results are as follows by customer type </br>
 
 Customer Type | Avg Ride Length (seconds) | Med Ride Length (seconds) | Max Ride Length (seconds) | Min Ride Length (seconds)
 --- | --- | --- | --- | ---
-Casual | 1974 | 1016 | 3356649 | 0
-Member | 811 | 598 | 573467 | 0
+Casual | 1584 | 943 | 86362 | 0
+Member | 769 | 562 | 86128 | 0
 </br>
 
 The results are as follows by casual customers by weekdays </br>
 Weekday | Avg Ride Length (seconds) | Med Ride Length (seconds) | Max Ride Length (seconds) | Min Ride Length (seconds)
 --- | --- | --- | --- | ---
-Sunday | 2282 | 1185 | 3235296 | 0
-Monday | 1960 | 1016 | 1900899 | 0
-Tuesday | 1763 | 902 | 2335375 | 0
-Wednesday | 1710 | 881 | 2337785 | 0
-Thursday | 1685 | 864 | 2946429 | 0
-Friday | 1889 | 949 | 3341501 | 0
-Saturday | 2125 | 1135 | 3356649 | 0
+Sunday | 1804 | 1096 | 86315 | 0
+Monday | 1638 | 955 | 86155 | 0
+Tuesday | 1404 | 814 | 86274 | 0
+Wednesday | 1363 | 813 | 86247 | 0
+Thursday | 1399 | 829 | 86215 | 0
+Friday | 1479 | 892 | 86329 | 0
+Saturday | 1731 | 1064 | 86362 | 0
 </br>
 
 The results are as follows by member customers by weekdays </br>
 Weekday | Avg Ride Length (seconds) | Med Ride Length (seconds) | Max Ride Length (seconds) | Min Ride Length (seconds)
 --- | --- | --- | --- | ---
-Sunday | 923 | 672 | 89995 | 0
-Monday | 777 | 572 | 89993 | 0
-Tuesday | 764 | 569 | 89996 | 0
-Wednesday | 768 | 575 | 573467 | 0
-Thursday | 760 | 569 | 89996 | 0
-Friday | 796 | 586 | 542972 | 0
-Saturday | 905 | 669 | 89996 | 0
+Sunday | 878 | 632 | 78819 | 0
+Monday | 746 | 78819 | 83627 | 0
+Tuesday | 717 | 531 | 84338 | 0
+Wednesday | 726 | 539 | 84908 | 0
+Thursday | 735 | 545 | 85272 | 0
+Friday | 752 | 554 | 86128 | 0
+Saturday | 869 | 632 | 85023 | 0
 </br>
 
 ### 5.3: Visualization
@@ -247,7 +250,7 @@ This section will demonstrate how to plot and visualize the findings for the gra
 
 ```r
 ## Data Wrangling for the summaries within weekdays and number of rides
-alltrips_v3 %>%
+alltrips2 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
   summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
@@ -255,7 +258,7 @@ alltrips_v3 %>%
   geom_col(position = "dodge")
 
 ## Plot weekday's ride count by membership type
-alltrips_v3 %>%
+alltrips2 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
   summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
@@ -267,7 +270,7 @@ alltrips_v3 %>%
   ggsave("ride_count.jpg", width = 2000, height = 1000, units = c("px"))
 
 ##  Plot weekday's average duration
-alltrips_v3 %>%
+alltrips2 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
   group_by(member_casual, weekday) %>%
   summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
