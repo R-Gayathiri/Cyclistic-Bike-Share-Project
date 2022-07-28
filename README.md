@@ -290,7 +290,7 @@ Number of Rides per Weekday Comparison </br>
 ![](https://github.com/R-Gayathiri/Google-Data-Analytics-Capstone/blob/main/ride_count.jpeg)
 
 Ride Duration Average per Weekday Comparison </br>
-![](https://github.com/hsc251/Google_Data_Analytics/blob/main/capstone/ridetime_avg.jpg)
+![](https://github.com/R-Gayathiri/Google-Data-Analytics-Capstone/blob/main/ridetime_avg.jpeg)
 
 6: Share
 ------------------
