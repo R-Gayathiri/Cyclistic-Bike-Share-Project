@@ -5,9 +5,9 @@ Author: Gayathiri Rathinasabapathi </br>
 1: Synopsis
 -----------
 
-This capstone project is to use the knowledge from Google Data Analytics courses to answer business questions coming from bike-share service while using supporting evidence to persuade stakeholders & executive while the decisions have to be made. </br>
+This project answers business questions coming from Cyclistic bike-share service by visualizing historical data and providing recommendations using supporting evidence. This information helps stakeholders & executives with decision making. </br>
 
-The data set is located in the [dataset link](https://divvy-tripdata.s3.amazonaws.com/index.html) to download.</br>
+The data set can be located at [dataset link](https://divvy-tripdata.s3.amazonaws.com/index.html).</br>
 
 The description and instruction can be referred from this [documentation link](https://d18ky98rnyall9.cloudfront.net/aacF81H_TsWnBfNR_x7FIg_36299b28fa0c4a5aba836111daad12f1_DAC8-Case-Study-1.pdf?Expires=1659225600&Signature=QeUE9-Sb06Huy~Z2CUaRbwu6pFRRCoAxDtKL-mhapz-gzvUbMONDMCKp7igj~DmPuqlCjnKv6vx2Ag033chIvmhSURrxhBygUnOyFbNIN5w2fBL8Spc4JvvUNXiBdh2ivdJf9aETxejXcciGVflgK6vr63t1TJ00Zq2oa-qsrqA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A). </br>
 
@@ -24,18 +24,19 @@ Based on the situation from statistics coming from the data gathered, the follow
 
 When looking at the 3 questions above, the business deliverable will be impelmented based on the analysis results between casual/members while trying understand the trends behind before giving necessary recommendation. </br>
 
-Throughout this capstone project, all execution will be done with R-Programming for data gathering, data cleaning and summarizing the visuals. </br>
+Throughout this project, R-Programming is used for data gathering, data cleaning and summarizing the visuals. </br>
+In addition, Tableau has been used for extensive visualization.  </br>
 
 3: Prepare
 ------------------
 
 ### 3.1: Data Preparation.
 
-The analysis period occurred between 2021 July to 2022 June, this 1 year span data will be applied to analyze the trend between casual customers and members. </br>
+The analysis period occurred between July 2021 and June 2022. This 1 year span data is analyzed to identify the service usage trend between casual customers and members. </br>
 
-The data from 2021 July and 2021 June are all stored in different csv files, which can be found in [here](https://divvy-tripdata.s3.amazonaws.com/index.html) </br>
+The data files can be found [here](https://divvy-tripdata.s3.amazonaws.com/index.html) </br>
 
-The following code will summarize which R-packages this analysis have applied for </br>
+The following R-packages has been used in this analysis.</br>
 
 ```r
 library(tidyverse)
@@ -46,9 +47,7 @@ library(dplyr)
 ```
 </br>
 
-Once the packages have been loaded, the following command will be applied to load the monthly data while verifying each month's data have the same attribute names. </br>
-
-*Remark: The csv files were pre-downloaded to the working directory, so the loading data will just be directly coming from the file source* </br>
+Once the packages are loaded, the following commands are applied to load the monthly data. </br>
 
 ```r
 # Load csv file into individual data frame
