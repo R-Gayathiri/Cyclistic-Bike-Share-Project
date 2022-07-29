@@ -9,7 +9,7 @@ This capstone project is to use the knowledge from Google Data Analytics courses
 
 The data set is located in the [dataset link](https://divvy-tripdata.s3.amazonaws.com/index.html) to download.</br>
 
-The description and instruction can be referred from this [documentation link](https://d3c33hcgiwev3.cloudfront.net/aacF81H_TsWnBfNR_x7FIg_36299b28fa0c4a5aba836111daad12f1_DAC8-Case-Study-1.pdf?Expires=1636329600&Signature=fosweeuKEsyIJLTMV5mLDBxvxIPCQ3BeqWSi~VTbRNMdYhvG4gpADXf3LhhkYATpdC3aavxzuc-GQMx5nBwj8YKKlDZkjTmkxn9i76M3Sm7udxs09ptL544LwkUwJv2J7W54T~UMWqpjNtpFFsoKtrcYsI8sgq2SesM5-rC2nCQ_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A). </br>
+The description and instruction can be referred from this [documentation link](https://d18ky98rnyall9.cloudfront.net/aacF81H_TsWnBfNR_x7FIg_36299b28fa0c4a5aba836111daad12f1_DAC8-Case-Study-1.pdf?Expires=1659225600&Signature=QeUE9-Sb06Huy~Z2CUaRbwu6pFRRCoAxDtKL-mhapz-gzvUbMONDMCKp7igj~DmPuqlCjnKv6vx2Ag033chIvmhSURrxhBygUnOyFbNIN5w2fBL8Spc4JvvUNXiBdh2ivdJf9aETxejXcciGVflgK6vr63t1TJ00Zq2oa-qsrqA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A). </br>
 
 2: Ask
 ------------------
